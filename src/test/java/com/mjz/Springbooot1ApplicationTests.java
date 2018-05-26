@@ -40,7 +40,7 @@ public class Springbooot1ApplicationTests {
         logger.error("error");
     }
 
-    @Test
+//    @Test
     public void testDataSource() throws SQLException {
         logger.info(dataSource.getClass().toString());
         Connection connection = dataSource.getConnection();
