@@ -1,0 +1,36 @@
+spring:
+  datasource:
+    username: mas
+    password: Mas@123456
+    url: jdbc:mysql://39.106.128.18:3306/personal_account
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMills: 60000
+    min-evictable-idle-time-millis: 60000
+    validation-query: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+
+  messages:
+    basename: i18n.login
+  resources:
+    static-locations: classpath:/asserts
+  thymeleaf:
+    cache: false
+  mvc:
+    date-format: yyyy-MM-dd
+server:
+  port: 8080
+  tomcat:
+    uri-encoding: UTF-8
+
+
+
+
