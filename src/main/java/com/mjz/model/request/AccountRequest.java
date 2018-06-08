@@ -16,8 +16,6 @@ import java.math.BigDecimal;
 @Setter
 @ToString
 public class AccountRequest {
-    /**账户编号*/
-    private Long id;
     /**用户显示ID*/
     private String userDisplayId;
     /**账户名称*/

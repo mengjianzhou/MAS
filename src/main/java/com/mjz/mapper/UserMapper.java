@@ -13,4 +13,6 @@ import java.util.List;
 public interface UserMapper {
 
     List<UserDO> queryAllUser();
+
+    UserDO queryUserByDisplayId(String userDisplayId);
 }

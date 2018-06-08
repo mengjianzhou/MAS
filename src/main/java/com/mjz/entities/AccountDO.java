@@ -21,7 +21,7 @@ public class AccountDO {
     /**账户对外显示ID*/
     private String accountDisplayId;
     /**用户显示ID*/
-    private String userDisplayId;
+    private Long userId;
     /**账户名称*/
     private String accountName;
     /**账户可用金额*/

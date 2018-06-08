@@ -21,7 +21,7 @@
     </select>
 
     <insert id="addAccount" parameterType="com.mjz.entities.AccountDO" useGeneratedKeys="true" keyProperty="id">
-      INSERT INTO account(account_display_id,user_id,account_name,available_amount,pre_income_amount,pre_outcome_amount,status,created_time,lastUpdatedTime)
+      INSERT INTO account(account_display_id,user_id,account_name,available_amount,pre_income_amount,pre_outcome_amount,status,created_time,last_updated_time)
       VALUES(#{accountDisplayId},#{userId},#{accountName},#{availableAmount},#{preIncomeAmount},#{preOutcomeAmount},#{status},#{createdTime},#{lastUpdatedTime})
     </insert>
 

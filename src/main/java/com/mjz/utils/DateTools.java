@@ -1,6 +1,7 @@
 package com.mjz.utils;
 
 import java.time.LocalDateTime;
+import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 
 /**
@@ -18,5 +19,10 @@ public class DateTools {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern(FORMAT1);
         LocalDateTime localDateTime = LocalDateTime.now();
         return localDateTime.format(formatter);
+    }
+
+    public static long getCurrentTimestamp(){
+        LocalDateTime localDateTime = LocalDateTime.now();
+        return localDateTime.toInstant(ZoneOffset.of("+8")).toEpochMilli();
     }
 }
