@@ -22,7 +22,7 @@ public interface AccountMapper {
 
     AccountDO queryByDisplayId(String displayId);
 
-    List<AccountDO> queryAll();
+    List<AccountDO> queryAllAccount();
 
     List<AccountDO> queryList(AccountDO accountDO);
 

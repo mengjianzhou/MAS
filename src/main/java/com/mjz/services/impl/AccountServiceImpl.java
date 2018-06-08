@@ -5,11 +5,13 @@ import com.mjz.entities.UserDO;
 import com.mjz.mapper.AccountMapper;
 import com.mjz.mapper.UserMapper;
 import com.mjz.model.request.AccountRequest;
+import com.mjz.model.response.AccountResponse;
 import com.mjz.services.AccountService;
 import com.mjz.utils.DateTools;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -72,8 +74,30 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
-    public List<AccountDO> queryAll() {
-        return null;
+    public List<AccountResponse> queryAll() {
+        List<AccountDO> accountDOList = accountMapper.queryAllAccount();
+        List<AccountResponse> resultList = convert2RespList(accountDOList);
+        return resultList;
+    }
+
+    private List<AccountResponse> convert2RespList(List<AccountDO> accountDOList) {
+        List<AccountResponse> accountResponseList = new ArrayList<>();
+        for(AccountDO accountDO : accountDOList){
+            AccountResponse accountResponse = convert2Resp(accountDO);
+            accountResponseList.add(accountResponse);
+        }
+        return accountResponseList;
+    }
+
+    private AccountResponse convert2Resp(AccountDO accountDO) {
+        AccountResponse accountResponse = new AccountResponse();
+        accountResponse.setAccountDisplayId(accountDO.getAccountDisplayId());
+        accountResponse.setAccountName(accountDO.getAccountName());
+        accountResponse.setAvailableAmount(accountDO.getAvailableAmount());
+        accountResponse.setCreatedTime(accountDO.getCreatedTime());
+        UserDO user = userMapper.queryUserById(accountDO.getUserId());
+        accountResponse.setUserDisplayId(user.getDisplayId());
+        return accountResponse;
     }
 
     @Override
@@ -81,3 +105,16 @@ public class AccountServiceImpl implements AccountService {
         return null;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -2,6 +2,7 @@ package com.mjz.services;
 
 import com.mjz.entities.AccountDO;
 import com.mjz.model.request.AccountRequest;
+import com.mjz.model.response.AccountResponse;
 
 import java.util.List;
 
@@ -24,7 +25,7 @@ public interface AccountService {
 
     AccountDO queryByDisplayId(String displayId);
 
-    List<AccountDO> queryAll();
+    List<AccountResponse> queryAll();
 
     List<AccountDO> queryList(AccountDO accountDO);
 }

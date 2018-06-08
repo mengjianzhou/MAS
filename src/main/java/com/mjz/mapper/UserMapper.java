@@ -15,4 +15,6 @@ public interface UserMapper {
     List<UserDO> queryAllUser();
 
     UserDO queryUserByDisplayId(String userDisplayId);
+
+    UserDO queryUserById(Long userId);
 }

@@ -4,6 +4,7 @@ import com.mjz.enums.ErrorDetail;
 import com.mjz.exception.BusinessException;
 import com.mjz.model.BaseResponseData;
 import com.mjz.model.request.AccountRequest;
+import com.mjz.model.response.AccountResponse;
 import com.mjz.services.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -11,6 +12,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 /**
  * 账户
@@ -31,6 +34,23 @@ public class AccountController extends BaseController {
         try {
             accountService.addAccount(accountRequest);
             return success(true);
+        } catch (Exception e){
+            if(e instanceof BusinessException){
+                BusinessException be = (BusinessException) e;
+                return fail(be.getErrorCode(), be.getErrorMsg(), be.getCause());
+            }
+            logger.error(e.getMessage());
+            e.printStackTrace();
+            return fail(ErrorDetail.SYSTEM_ERROR.getErrorCode(), ErrorDetail.SYSTEM_ERROR.getErrorMsg(), e.getCause());
+        }
+    }
+
+    @GetMapping("queryAllAccount")
+    @ResponseBody
+    public ResponseEntity<BaseResponseData> queryAllAccount(){
+        try {
+            List<AccountResponse> accountResponseList = accountService.queryAll();
+            return success(accountResponseList);
         } catch (Exception e){
             if(e instanceof BusinessException){
                 BusinessException be = (BusinessException) e;
