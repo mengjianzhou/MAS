@@ -17,16 +17,4 @@ public class MASApplication {
         SpringApplication.run(MASApplication.class, args);
     }
 
-    @Bean
-    public ViewResolver myViewReolver(){
-        return new MASApplication.MyViewResolver();
-    }
-
-    public static class MyViewResolver implements ViewResolver{
-
-        @Override
-        public View resolveViewName(String viewName, Locale locale) throws Exception {
-            return null;
-        }
-    }
 }

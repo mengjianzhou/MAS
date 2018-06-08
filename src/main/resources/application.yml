@@ -18,14 +18,6 @@ spring:
     testOnReturn: false
     poolPreparedStatements: true
 
-  messages:
-    basename: i18n.login
-  resources:
-    static-locations: classpath:/asserts
-  thymeleaf:
-    cache: false
-  mvc:
-    date-format: yyyy-MM-dd
 server:
   port: 8080
   tomcat:

@@ -24,21 +24,4 @@ public class WebConfig extends WebMvcConfigurationSupport {
         return new DruidDataSource();
     }
 
-//    @Override
-//    protected void addInterceptors(InterceptorRegistry registry) {
-//        registry.addInterceptor(new LoginHandlerInterceptor())
-//                .excludePathPatterns("/index.html","/login","/user/login","/asserts/**");
-//    }
-//
-//    @Override
-//    protected void addViewControllers(ViewControllerRegistry registry) {
-//        registry.addViewController("/").setViewName("login");
-//        registry.addViewController("/index.html").setViewName("login");
-//        registry.addViewController("/main.html").setViewName("dashboard");
-//    }
-//
-//    @Override
-//    protected void addResourceHandlers(ResourceHandlerRegistry registry) {
-//        registry.addResourceHandler("/asserts/**").addResourceLocations("classpath:/asserts/");
-//    }
 }
