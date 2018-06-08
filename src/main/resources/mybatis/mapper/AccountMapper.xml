@@ -5,7 +5,8 @@
 <mapper namespace="com.mjz.mapper.AccountMapper">
     <resultMap id="accountMap" type="com.mjz.entities.AccountDO" >
         <id property="id" column="id" />
-        <result property="userDisplayId" column="user_display_id"/>
+        <result property="accountDisplayId" column="account_display_id"/>
+        <result property="userId" column="user_id"/>
         <result property="accountName" column="account_name"/>
         <result property="availableAmount" column="available_amount"/>
         <result property="preIncomeAmount" column="pre_income_amount"/>
@@ -20,11 +21,11 @@
     </select>
 
     <insert id="addAccount" parameterType="com.mjz.entities.AccountDO" useGeneratedKeys="true" keyProperty="id">
-      INSERT INTO user(display_id,mobile,nick_name,name,password,enable,created_time)
-      VALUES(#{displayId},#{mobile},#{nickName},#{name},#{password},#{enable},#{createdTime})
+      INSERT INTO account(account_display_id,user_id,account_name,available_amount,pre_income_amount,pre_outcome_amount,status,created_time,lastUpdatedTime)
+      VALUES(#{accountDisplayId},#{userId},#{accountName},#{availableAmount},#{preIncomeAmount},#{preOutcomeAmount},#{status},#{createdTime},#{lastUpdatedTime})
     </insert>
 
     <delete id="delUser" parameterType="long">
-        DELETE FROM user WHERE id = #{id}
+        DELETE FROM account WHERE id = #{id}
     </delete>
 </mapper>

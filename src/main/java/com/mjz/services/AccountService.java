@@ -1,18 +1,20 @@
-package com.mjz.mapper;
+package com.mjz.services;
 
 import com.mjz.entities.AccountDO;
+import com.mjz.model.request.AccountRequest;
 
 import java.util.List;
 
 /**
- * 账户数据库访问类
+ * 〈一句话功能简述〉<br>
+ * 〈${DESCRIPTION}〉
  *
  * @author zhaob
  * @create 2018/6/9
  */
-public interface AccountMapper {
+public interface AccountService {
 
-    void addAccount(AccountDO accountDO);
+    void addAccount(AccountRequest accountRequest);
 
     void delAccount(String accountDisplayId);
 
@@ -25,5 +27,4 @@ public interface AccountMapper {
     List<AccountDO> queryAll();
 
     List<AccountDO> queryList(AccountDO accountDO);
-
 }

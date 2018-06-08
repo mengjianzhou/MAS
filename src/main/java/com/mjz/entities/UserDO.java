@@ -4,8 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * 〈一句话功能简述〉<br>
- * 〈${DESCRIPTION}〉
+ * 用户数据库实体类
  *
  * @author zhaob
  * @create 2018/5/26
