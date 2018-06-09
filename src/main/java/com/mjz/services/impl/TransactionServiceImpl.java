@@ -1,6 +1,8 @@
 package com.mjz.services.impl;
 
+import com.mjz.entities.AccountDO;
 import com.mjz.entities.UserDO;
+import com.mjz.mapper.AccountMapper;
 import com.mjz.mapper.TransactionMapper;
 import com.mjz.entities.TransactionDO;
 import com.mjz.mapper.UserMapper;
@@ -29,6 +31,9 @@ public class TransactionServiceImpl implements TransactionService {
 
     @Autowired
     private UserMapper userMapper;
+
+    @Autowired
+    private AccountMapper accountMapper;
 
     @Override
     public void addTransaction(TransactionRequest transRequest) {
@@ -59,7 +64,6 @@ public class TransactionServiceImpl implements TransactionService {
             transResp.setCreatedTime(transactionDO.getCreatedTime());
             resultList.add(transResp);
         }
-
         return resultList;
     }
 
@@ -69,6 +73,10 @@ public class TransactionServiceImpl implements TransactionService {
         transactionDO.setUserId(userDO.getId());
         transactionDO.setType(transactionVo.getType());
         transactionDO.setName(transactionVo.getName());
+        AccountDO outAccount = accountMapper.queryByDisplayId(transactionVo.getOutAccountDisplayId());
+        transactionDO.setOutAccountId(outAccount.getId());
+        AccountDO inAccount = accountMapper.queryByDisplayId(transactionVo.getInAccountDisplayId());
+        transactionDO.setInAccountId(inAccount.getId());
         transactionDO.setAmount(transactionVo.getAmount());
         transactionDO.setComment(transactionVo.getComment());
         transactionDO.setCreatedTime(DateTools.getCurrentDateTime());

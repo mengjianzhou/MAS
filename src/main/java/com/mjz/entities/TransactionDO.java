@@ -25,9 +25,9 @@ public class TransactionDO {
     /** 交易类型*/
     private Integer type;
     /** 转出账户*/
-    private int outAccountDisplayId;
+    private long outAccountId;
     /** 转入账户*/
-    private int inAccountDisplayId;
+    private long inAccountId;
     /** 交易金额*/
     private BigDecimal amount;
     /** 备注*/

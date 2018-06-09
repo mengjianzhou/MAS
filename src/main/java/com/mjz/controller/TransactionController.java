@@ -4,6 +4,7 @@ import com.mjz.enums.ErrorDetail;
 import com.mjz.exception.BusinessException;
 import com.mjz.model.BaseResponseData;
 import com.mjz.model.request.TransactionRequest;
+import com.mjz.model.response.TransactionResponse;
 import com.mjz.services.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -64,7 +65,7 @@ public class TransactionController extends BaseController {
     @ResponseBody
     public ResponseEntity<BaseResponseData> queryAllTrans(){
         try {
-            List<TransactionRequest> voList = transactionService.queryAllTrans();
+            List<TransactionResponse> voList = transactionService.queryAllTrans();
             return success(voList);
         } catch (Exception e){
             if(e instanceof BusinessException){

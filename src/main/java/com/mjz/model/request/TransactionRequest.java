@@ -22,9 +22,9 @@ public class TransactionRequest {
     /** 交易类型*/
     private Integer type;
     /** 转出账户*/
-    private int outAccountDisplayId;
+    private String outAccountDisplayId;
     /** 转入账户*/
-    private int inAccountDisplayId;
+    private String inAccountDisplayId;
     /** 交易金额*/
     private BigDecimal amount;
     /** 备注*/
