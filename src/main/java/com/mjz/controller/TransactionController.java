@@ -3,7 +3,7 @@ package com.mjz.controller;
 import com.mjz.enums.ErrorDetail;
 import com.mjz.exception.BusinessException;
 import com.mjz.model.BaseResponseData;
-import com.mjz.model.TransactionVo;
+import com.mjz.model.request.TransactionRequest;
 import com.mjz.services.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -28,9 +28,9 @@ public class TransactionController extends BaseController {
 
     @GetMapping("addTrans")
     @ResponseBody
-    public ResponseEntity<BaseResponseData> addTrans(TransactionVo transactionVo){
+    public ResponseEntity<BaseResponseData> addTrans(TransactionRequest transRequest){
         try {
-            transactionService.addTransaction(transactionVo);
+            transactionService.addTransaction(transRequest);
             return success(true);
         } catch (Exception e){
             if(e instanceof BusinessException){
@@ -64,7 +64,7 @@ public class TransactionController extends BaseController {
     @ResponseBody
     public ResponseEntity<BaseResponseData> queryAllTrans(){
         try {
-            List<TransactionVo> voList = transactionService.queryAllTrans();
+            List<TransactionRequest> voList = transactionService.queryAllTrans();
             return success(voList);
         } catch (Exception e){
             if(e instanceof BusinessException){

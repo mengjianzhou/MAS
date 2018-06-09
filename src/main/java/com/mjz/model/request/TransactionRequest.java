@@ -1,25 +1,22 @@
-package com.mjz.entities;
+package com.mjz.model.request;
+
 
 import lombok.Getter;
 import lombok.Setter;
-
 import java.math.BigDecimal;
 
 /**
- * 〈一句话功能简述〉<br>
- * 〈${DESCRIPTION}〉
+ * 交易对象
  *
  * @author zhaob
  * @create 2018/5/26
  */
 @Getter
 @Setter
-public class TransactionDO {
+public class TransactionRequest {
 
-    /**主键*/
-    private Long id;
     /** 用户编号*/
-    private Long userId;
+    private String userDisplayId;
     /** 用户姓名*/
     private String name;
     /** 交易类型*/
@@ -32,6 +29,5 @@ public class TransactionDO {
     private BigDecimal amount;
     /** 备注*/
     private String comment;
-    /** 创建时间*/
-    private String createdTime;
+
 }

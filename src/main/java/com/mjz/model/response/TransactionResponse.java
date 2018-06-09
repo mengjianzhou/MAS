@@ -1,4 +1,4 @@
-package com.mjz.entities;
+package com.mjz.model.response;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -10,16 +10,14 @@ import java.math.BigDecimal;
  * 〈${DESCRIPTION}〉
  *
  * @author zhaob
- * @create 2018/5/26
+ * @create 2018/6/9
  */
 @Getter
 @Setter
-public class TransactionDO {
+public class TransactionResponse {
 
-    /**主键*/
-    private Long id;
     /** 用户编号*/
-    private Long userId;
+    private String userDisplayId;
     /** 用户姓名*/
     private String name;
     /** 交易类型*/
@@ -32,6 +30,6 @@ public class TransactionDO {
     private BigDecimal amount;
     /** 备注*/
     private String comment;
-    /** 创建时间*/
+    /** 交易时间*/
     private String createdTime;
 }

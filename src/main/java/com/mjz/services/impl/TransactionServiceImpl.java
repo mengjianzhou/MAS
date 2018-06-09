@@ -1,8 +1,11 @@
 package com.mjz.services.impl;
 
+import com.mjz.entities.UserDO;
 import com.mjz.mapper.TransactionMapper;
 import com.mjz.entities.TransactionDO;
-import com.mjz.model.TransactionVo;
+import com.mjz.mapper.UserMapper;
+import com.mjz.model.request.TransactionRequest;
+import com.mjz.model.response.TransactionResponse;
 import com.mjz.services.TransactionService;
 import com.mjz.utils.DateTools;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,9 +27,12 @@ public class TransactionServiceImpl implements TransactionService {
     @Autowired
     private TransactionMapper transactionMapper;
 
+    @Autowired
+    private UserMapper userMapper;
+
     @Override
-    public void addTransaction(TransactionVo transactionVo) {
-        TransactionDO transactionDO = getTransactionDO(transactionVo);
+    public void addTransaction(TransactionRequest transRequest) {
+        TransactionDO transactionDO = getTransactionDO(transRequest);
         transactionMapper.addTransaction(transactionDO);
     }
 
@@ -36,31 +42,31 @@ public class TransactionServiceImpl implements TransactionService {
     }
 
     @Override
-    public List<TransactionVo> queryAllTrans() {
+    public List<TransactionResponse> queryAllTrans() {
         List<TransactionDO> transactionDOList =  transactionMapper.queryAllTransaction();
-        List<TransactionVo> transactionVoList = getTransactionVoList(transactionDOList);
+        List<TransactionResponse> transactionVoList = getTransactionList(transactionDOList);
         return transactionVoList;
     }
 
-    private List<TransactionVo> getTransactionVoList(List<TransactionDO> transactionDOList) {
-        List<TransactionVo> resultList = new ArrayList();
+    private List<TransactionResponse> getTransactionList(List<TransactionDO> transactionDOList) {
+        List<TransactionResponse> resultList = new ArrayList();
         for(TransactionDO transactionDO : transactionDOList){
-            TransactionVo vo = new TransactionVo();
-            vo.setId(transactionDO.getId());
-            vo.setName(transactionDO.getName());
-            vo.setAmount(transactionDO.getAmount());
-            vo.setType(transactionDO.getType());
-            vo.setComment(transactionDO.getComment());
-            vo.setCreateTime(transactionDO.getCreatedTime());
-            resultList.add(vo);
+            TransactionResponse transResp = new TransactionResponse();
+            transResp.setName(transactionDO.getName());
+            transResp.setAmount(transactionDO.getAmount());
+            transResp.setType(transactionDO.getType());
+            transResp.setComment(transactionDO.getComment());
+            transResp.setCreatedTime(transactionDO.getCreatedTime());
+            resultList.add(transResp);
         }
 
         return resultList;
     }
 
-    private TransactionDO getTransactionDO(TransactionVo transactionVo) {
+    private TransactionDO getTransactionDO(TransactionRequest transactionVo) {
         TransactionDO transactionDO = new TransactionDO();
-        transactionDO.setUserId("U201805261");
+        UserDO userDO = userMapper.queryUserByDisplayId(transactionVo.getUserDisplayId());
+        transactionDO.setUserId(userDO.getId());
         transactionDO.setType(transactionVo.getType());
         transactionDO.setName(transactionVo.getName());
         transactionDO.setAmount(transactionVo.getAmount());

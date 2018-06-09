@@ -1,8 +1,8 @@
 package com.mjz.services;
 
 
-import com.mjz.entities.TransactionDO;
-import com.mjz.model.TransactionVo;
+import com.mjz.model.request.TransactionRequest;
+import com.mjz.model.response.TransactionResponse;
 
 import java.util.List;
 
@@ -16,9 +16,9 @@ import java.util.List;
 public interface TransactionService {
 
 
-    void addTransaction(TransactionVo transactionVo);
+    void addTransaction(TransactionRequest transactionVo);
 
     void delTrans(Integer id);
 
-    List<TransactionVo> queryAllTrans();
+    List<TransactionResponse> queryAllTrans();
 }
