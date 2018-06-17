@@ -16,6 +16,10 @@
       SELECT * FROM emp
     </select>
 
+    <select id="queryEmp" parameterType="string">
+      SELECT * FROM emp WHERE id = #{id}
+    </select>
+
     <update id="updateEmp" parameterType="com.mjz.entities.Emp">
       UPDATE emp SET NAME = #{name} WHERE id = #{id}
     </update>

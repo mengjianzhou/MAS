@@ -20,4 +20,6 @@ public interface EmpService {
     void updateEmp(String id, String name);
 
     void deleteEmp(String id);
+
+    Emp queryEmp(String id);
 }

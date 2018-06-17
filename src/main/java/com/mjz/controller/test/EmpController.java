@@ -42,6 +42,13 @@ public class EmpController extends BaseController {
         return success(empList);
     }
 
+    @RequestMapping("queryEmp/{id}")
+    @ResponseBody
+    private ResponseEntity<BaseResponseData> queryEmp(@PathVariable("id") String id){
+        Emp emp = empService.queryEmp(id);
+        return success(emp);
+    }
+
     @RequestMapping("updateEmp/{id}/{name}")
     @ResponseBody
     private ResponseEntity<BaseResponseData> updateEmp(@PathVariable("id") String id,

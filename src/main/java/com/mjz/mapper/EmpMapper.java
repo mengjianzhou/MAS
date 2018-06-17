@@ -20,4 +20,6 @@ public interface EmpMapper {
     void updateEmp(Emp emp);
 
     void deleteEmp(String id);
+
+    Emp queryEmp(String id);
 }
