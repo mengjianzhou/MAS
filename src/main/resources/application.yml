@@ -2,7 +2,7 @@ spring:
   datasource:
     username: mas
     password: Mas@123456
-    url: jdbc:mysql://39.106.128.18:3306/personal_account
+    url: jdbc:mysql://39.106.128.18:3306/study
     driver-class-name: com.mysql.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
 
