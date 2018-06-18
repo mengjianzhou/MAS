@@ -4,3 +4,12 @@ mvn install:install-file -Dfile=ext_jar/mysql-connector-java-5.1.46.jar -DgroupI
 
 ###2018-06-09
 完成账户的添、删、改、查
+
+###2018-06-18
+集成Redis
+集成事务处理
+使用logback打印mybatis sql语句
+
+
+
+
