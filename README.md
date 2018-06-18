@@ -17,7 +17,9 @@ mvn install:install-file -Dfile=ext_jar/mysql-connector-java-5.1.46.jar -DgroupI
 - 集成kafkamq、rabbitMQ
 - 添加常用的工具类 如StringUtil、DateUtil
 - 多线程编程
-- 
+
+
+热爱生活 热爱编程
 
  
 
