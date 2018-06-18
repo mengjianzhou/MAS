@@ -1,3 +1,5 @@
+###这是一个学习的项目，用来总结平时用的技术。
+
 # MAS
 ##### add mysql jdbc驱动
 mvn install:install-file -Dfile=ext_jar/mysql-connector-java-5.1.46.jar -DgroupId=com.mysql -DartifactId=mysql-connector-java-5.1.46 -Dpackaging=jar -DgeneratePom=true -Dversion=5.1.46
