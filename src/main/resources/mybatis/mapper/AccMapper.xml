@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mjz.mapper.AcctMapper">
+    <resultMap id="acctMap" type="com.mjz.entities.Acct" >
+        <id property="id" column="id" />
+        <result property="name" column="name"/>
+    </resultMap>
+
+    <update id="updateAcct" parameterType="com.mjz.entities.Acct">
+      UPDATE account SET amount = amount-#{amount} WHERE id = #{id}
+    </update>
+
+    <select id="queryAcct" parameterType="string" resultMap="acctMap">
+      select * from account where id = #{id}
+    </select>
+
+</mapper>

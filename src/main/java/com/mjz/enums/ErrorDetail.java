@@ -8,7 +8,9 @@ package com.mjz.enums;
  * @create 2018/5/26
  */
 public enum ErrorDetail {
-    SYSTEM_ERROR("999999", "系统错误"),;
+    SYSTEM_ERROR("999999", "系统错误"),
+
+    AMOUNT_NOT_ENOUGH("501001","金额不足");
 
     /** The code. */
     private String errorCode;
