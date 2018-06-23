@@ -21,6 +21,12 @@ spring:
     host: 39.106.128.18
     port: 6380
     password: 654321
+  application:
+    name: mas
+  dubbo:
+    server: true
+    registry: N/A
+
 
 server:
   port: 8080
