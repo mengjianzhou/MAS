@@ -22,6 +22,12 @@ mvn install:install-file -Dfile=ext_jar/mysql-connector-java-5.1.46.jar -DgroupI
 热爱生活 热爱编程
 - 寻找一个开放的、包容的平台
 
+study 
+to recognize and to use it 
+
+use wiki
+https://en.wikipedia.org/wiki/Main_Page
+
  
 
 
