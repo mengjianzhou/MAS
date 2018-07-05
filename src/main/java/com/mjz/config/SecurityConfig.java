@@ -1,5 +1,6 @@
 package com.mjz.config;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -18,11 +19,13 @@ import org.springframework.security.crypto.password.PasswordEncoder;
  * @create 2018/6/30
  */
 @EnableWebSecurity
+@Slf4j
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+        log.info("http访问控制配置");
         //配置http请求
         http.authorizeRequests()
                 .antMatchers("/").permitAll()
