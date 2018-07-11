@@ -2,6 +2,7 @@ package com.mjz.entities;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 
 import java.math.BigDecimal;
 
@@ -14,6 +15,7 @@ import java.math.BigDecimal;
  */
 @Getter
 @Setter
+@Slf4j
 public class TransactionDO {
 
     /**主键*/
@@ -34,4 +36,5 @@ public class TransactionDO {
     private String comment;
     /** 创建时间*/
     private String createdTime;
+
 }
